@@ -1,5 +1,9 @@
 let click = false;
 
+let mouseDown = false
+document.body.onmousedown = () => (mouseDown = true)
+document.body.onmouseup = () => (mouseDown = false)
+
 const paintContainer = document.querySelector('.paintContainer');
 const grid = {rows: prompt('number of rows?'), cols: prompt('numb of cols?')};
 const total = grid.cols * grid.rows;
@@ -18,24 +22,31 @@ function createGrid(total) {
 }
 
 
-console.log();
+
 
 let box = document.getElementsByClassName('box');
 console.log(box);
 
 
         for(const each of box) {
-            each.addEventListener('mouseover', () => {
-                console.log('click');
-                if(click) {
+            each.addEventListener('mouseover', (e) => {
+                if (e.type === 'mouseover' && !mouseDown) return;
+                    each.setAttribute('style', 'background: black'); 
+                /*if(click) {
                 each.setAttribute('style', 'background: black');
-                }
+                }*/
             });
+
+            each.addEventListener('mouseDown', (e) => {
+                if (e.type === 'mouseover' && !mouseDown) return;
+                    each.setAttribute('style', 'background: black'); 
+            })
         }
+        
+        /*document.querySelector('body').addEventListener('click', () => {
+            console.log('body click');
+            click = !click;
+        })*/
 
-
-document.querySelector('body').addEventListener('click', () => {
-    click = !click;
-})
 
 
