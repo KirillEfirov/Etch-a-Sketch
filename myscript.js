@@ -1,14 +1,11 @@
-let click = false;
-
-let mouseDown = false
-document.body.onmousedown = () => (mouseDown = true)
-document.body.onmouseup = () => (mouseDown = false)
+let mouseDown = false;
+document.body.onmousedown = () => (mouseDown = true);
+document.body.onmouseup = () => (mouseDown = false);
 
 const paintContainer = document.querySelector('.paintContainer');
-const grid = {rows: 8, cols: 8};
+/*Szie by default*/ 
+const grid = {rows: 64, cols: 64};
 const total = grid.cols * grid.rows;
-
-createGrid(total);
 
 
 function createGrid(total) {
@@ -20,14 +17,25 @@ function createGrid(total) {
     }
     paintContainer.style.setProperty(`grid-template-columns`, `repeat(${grid.cols}, auto)`);
 }
+window.onload = createGrid(total);
+
+
+
+const input = document.querySelector('input');
+input.addEventListener('change', getValue);
+let rememberValue = 64;
+
+function getValue(e) {
+    rememberValue = e.target.value;
+    console.log(rememberValue);
+}
+
 
 
 
 
 let box = document.getElementsByClassName('box');
-console.log(box);
-
-    function paint() {
+function paintBlack() {
         for(const each of box) {
             each.addEventListener('mouseover', (e) => {
                 if (e.type === 'mouseover' && !mouseDown) return;
@@ -37,8 +45,32 @@ console.log(box);
             each.addEventListener('mouseDown', (e) => {
                 if (e.type === 'mouseover' && !mouseDown) return;
                     each.setAttribute('style', 'background: black'); 
-            })
+            });
         }
-    }
+}
+window.onload = paintBlack();
 
-window.onload = createGrid();
+
+
+const black = document.querySelector('.black');
+black.addEventListener('click', paintBlack);
+
+
+
+
+const eraser = document.querySelector('.eraser');
+eraser.addEventListener('click', Eraser);
+
+function Eraser() {
+    for(const each of box) {
+        each.addEventListener('mouseover', (e) => {
+            if (e.type === 'mouseover' && !mouseDown) return;
+                each.setAttribute('style', 'background: white'); 
+        });
+
+        each.addEventListener('mouseDown', (e) => {
+            if (e.type === 'mouseover' && !mouseDown) return;
+                each.setAttribute('style', 'background: white'); 
+        });
+    }
+}
