@@ -8,12 +8,34 @@
     </head>
 
     <body>
-        <label for="quantity">Quantity (between 1 and 10):</label>
-        <input type="number" id="quantity" name="quantity" min="1" max="10">
+        <h1>Etch-a-Sketch</h1>
+
+        <div class="rangeContainer">
+            <p>Size of your paintbrush</p>
+            <p>99 <input type="range" min="1" max="150" value="64"> 1</p>
+        </div>
 
 
 
-        <div class="paintContainer"></div>
+
+
+        <div class="bodyContainer">
+
+            <div class="paintContainer"></div>
+
+            <div class="containerForButtons">
+                <div>Выберите цвет:
+                    <p><input type="color" value="#000" name="color"></p>
+                </div>
+                <button class="button rainbow">Rainbow</button>
+                <button class="button black">Black</button>
+                <button class="button eraser">Eraser</button>
+                <button class="button clear">Clear</button>
+            </div>
+
+
+        </div>
+
         <script src="myscript.js"></script>
     </body>
 </html>
