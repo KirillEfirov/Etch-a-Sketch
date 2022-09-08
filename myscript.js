@@ -39,7 +39,7 @@ window.onload = paintBlack();
 
 
 const black = document.querySelector('.black');
-black.addEventListener('click', paintBlack);
+black.addEventListener('click touchend', paintBlack);
 
 
 const eraser = document.querySelector('.eraser');
