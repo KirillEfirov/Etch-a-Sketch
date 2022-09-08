@@ -34,6 +34,7 @@ function paintBlack() {
                 each.setAttribute('style', 'background: black'); 
         });
     }
+    return false;
 }
 window.onload = paintBlack();
 
