@@ -34,13 +34,12 @@ function paintBlack() {
                 each.setAttribute('style', 'background: black'); 
         });
     }
-    return false;
 }
 window.onload = paintBlack();
 
 
 const black = document.querySelector('.black');
-black.addEventListener('click touchstart', paintBlack);
+black.addEventListener('click', paintBlack);
 
 
 const eraser = document.querySelector('.eraser');
@@ -155,3 +154,21 @@ function generateRainbow() {
         });
     }
 }
+
+let rememberColor = '#000000';
+const anyColor = document.querySelector('#anyColor');
+anyColor.addEventListener('change', (e) => {
+    rememberColor = e.target.value;
+    console.log(rememberColor);
+    for(const each of box) {
+        each.addEventListener('mouseover', (e) => {
+            if (e.type === 'mouseover' && !mouseDown) return;
+                each.setAttribute('style', `background: ${rememberColor}`); 
+        });
+
+        each.addEventListener('mouseDown', (e) => {
+            if (e.type === 'mouseover' && !mouseDown) return;
+                each.setAttribute('style', `background: ${rememberColor}`); 
+        });
+    } 
+    });
