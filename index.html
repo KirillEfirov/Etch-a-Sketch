@@ -10,12 +10,18 @@
     <body>
         <h1>Etch-a-Sketch</h1>
 
-        <div class="rangeContainer">
+        <!--<div class="rangeContainer">
             <p>Size of your paintbrush</p>
             <p>99 <input type="range" min="1" max="150" value="64"> 1</p>
-        </div>
+        </div>-->
 
         <div class="mainContainer">
+            <div class="rangeContainer">
+                <p>Paintbrush</p>
+                <p><input id="range" type="range" min="1" max="150" value="64"
+                     aria-orientation="vertical"></p>
+            </div>
+
             <div class="paintContainer"></div>
 
             <div class="containerForButtons">
