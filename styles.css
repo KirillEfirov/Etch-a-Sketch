@@ -20,6 +20,11 @@ h1 {
     margin-top: 70px;
 }
 
+input[type="range"] {
+    writing-mode: bt-lr;
+    -webkit-appearance: slider-vertical;
+  }
+
 .mainContainer {
     display: flex;
     flex-direction: row-reverse;
