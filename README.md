@@ -1,2 +1,2 @@
 # Etch-a-Sketch
-Project to practice Events 
+Project to practise Events 
